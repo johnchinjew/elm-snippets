@@ -1,15 +1,12 @@
--- An opaque type and generator for core/random-based (32-bit, pseudo-random) Id's.
-
-
-module Id exposing (Id, randomId)
+module Id exposing (Id, random)
 
 import Random
 
 
-type Id
-    = Id Int
+type alias Id =
+    Int
 
 
-randomId : Random.Generator Id
-randomId =
-    Random.map Id (Random.int Random.minInt Random.maxInt)
+random : Random.Generator Id
+random =
+    Random.int Random.minInt Random.maxInt
